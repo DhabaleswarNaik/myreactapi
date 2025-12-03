@@ -1,12 +1,12 @@
-import logo from './logo.svg';
+
 import './App.css';
-import Api from './components/Api';
+import Test from './components/test';
+
 
 function App() {
   return (
     <div className="App">
-     
-      <Api />
+      <Test />
     </div>
   );
 }

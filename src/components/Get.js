@@ -2,12 +2,12 @@ import React from "react";
 import axios from "axios";
 import { useState, useEffect } from "react";
 
-export default function Api() {
+export default function Get() {
     const [data, setData] = useState([])
     useEffect(() => {
         async function fetchData() {
             try {
-            const response = await axios.get("https://jsonplaceholder.typicode.com/posts");
+            const response = await axios.get("https://jsonplaceholder.typicode.com/albums");
             setData(response.data);
             console.log(response);
             } catch (error) {
@@ -17,16 +17,13 @@ export default function Api() {
         fetchData();
        
     }, [])
-
     return (
         <div>
-            <h1>API Data</h1>
-            
-                {data.map(item => (
-                    <p style={{border: "1px solid black", padding: "40px", borderWidth: "1px"}} key={item.id}>
-                        <strong>{item.id}:{item.title }</strong> <br></br>{item.body}</p>
-                ))}
-            
+            <h2>Fetched Albums :</h2>
+            {data.map(item => (
+                <p style={{border: "1px solid red", padding: "40px", borderWidth: "1px" }} key={item.id}>
+                    <strong>{item.id}:</strong> {item.title }</p>
+            ))}     
         </div>
     )
 }
